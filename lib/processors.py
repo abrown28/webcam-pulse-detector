@@ -150,7 +150,7 @@ class findFaceGetPulse(Assembly):
         #pass the green channel of the original image frame and detected 
         #face locations to the forehead subimage collector
         self.connect("find_faces.foreheads", "grab_foreheads.rects_in")
-        self.connect("RGBsplitter.G", "grab_foreheads.frame_in")   
+        self.connect("RGBsplitter.mixed", "grab_foreheads.frame_in")   
         
         #send the mean of the first detected forehead subimage (green channel)
         #to the buffering FFT component

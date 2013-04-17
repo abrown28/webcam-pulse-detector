@@ -22,11 +22,13 @@ class RGBSplit(Component):
         self.add("R", Array(iotype="out"))
         self.add("G", Array(iotype="out"))
         self.add("B", Array(iotype="out"))
+	self.add("mixed", Array(iotype="out"))
 
     def execute(self):
         self.R = self.frame_in[:,:,0]     
         self.G = self.frame_in[:,:,1]   
         self.B = self.frame_in[:,:,2]   
+	self.mixed = 0.5*self.G+0.5*self.B
 
 class RGBmuxer(Component):
     """
